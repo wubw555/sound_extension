@@ -1,0 +1,39 @@
+{
+    "name": "Sample",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "description": "Sample Chrome Extension",
+    "permissions": [
+      "webRequest",
+      "tabs"
+    ],
+    "host_permissions": [
+      "https://*/*"
+    ],
+    "content_scripts": [
+      {
+      "matches": ["https://*/*", "http://*/*"],
+      "run_at": "document_idle",
+      "js": [
+        "soundOnAllPages.js"
+      ]
+    },
+      {
+      "matches": ["https://*.chatgpt.com/*", "https://claude.ai/chat*"],
+      "run_at": "document_idle",
+      "js": [
+        "soundOnGPTPages.js"
+      ]
+    },
+      {
+      "matches": ["*://localhost/*"],
+      "run_at": "document_idle",
+      "js": [
+        "soundPlayer.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+  }
