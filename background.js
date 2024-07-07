@@ -31,7 +31,7 @@ chrome.webRequest.onCompleted.addListener(
     if (request.name === 'all_page') {
         if (request.status === 'done') {
             chrome.tabs.query({
-                url: ["*://localhost/*"]
+                url: ["*://progress-sound.an.r.appspot.com/*"]
               }, (result) => {
                 result.forEach(currentTab => {
                     console.log(currentTab.url)

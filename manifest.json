@@ -26,7 +26,7 @@
       ]
     },
       {
-      "matches": ["*://localhost/*"],
+      "matches": ["*://progress-sound.an.r.appspot.com/*"],
       "run_at": "document_idle",
       "js": [
         "soundPlayer.js"
