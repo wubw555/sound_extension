@@ -20,10 +20,33 @@ chrome.webRequest.onCompleted.addListener(
                 }, () => {}); 
             });
           });
-          console.log('request end')
+          console.log('token create end')
     },
     {urls: ['https://chatgpt.com/backend-api/lat/r', 'https://claude.ai/api/organizations*chat_conversations*?tree=True']},
     []
+  );
+
+  chrome.webRequest.onCompleted.addListener(
+    (details) => {
+        if (details.type !== 'main_frame') return
+        if (details.responseHeaders.filter(h=>(h.name === 'content-type' && h.value.includes('application/pdf'))).length < 1) return
+        console.log('track end')
+        console.log(details)
+        chrome.tabs.query({
+            url: ["*://progress-sound.an.r.appspot.com/*"]
+          }, (result) => {
+            result.forEach(currentTab => {
+                console.log(currentTab.url)
+                chrome.tabs.sendMessage(currentTab.id, {
+                    name: 'all_page',
+                    status: 'done',
+                }, () => {}); 
+            });
+          });
+          console.log('send back message to player')
+    },
+    {urls: ['<all_urls>']},
+    ["responseHeaders"]
   );
 
   chrome.runtime.onMessage.addListener((request, options) => {
