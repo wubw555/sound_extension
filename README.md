@@ -18,7 +18,7 @@ $ git clone https://github.com/wubw555/sound_extension
 ![img2](docs/img/img2.png)
 3. 拡張機能の管理ページから「パッケージ化されていない拡張機能を読み込む」をクリック
 ![img3](docs/img/img3.png)
-4. 展開したフォルダを選択(1.で展開した場所にあります。)
+4. 1.で展開したフォルダを選択(1. で展開したフォルダの中身ではなく1.で展開したフォルダそのもののことです)
 ![img4](docs/img/img4.png)
 5. これで使用の準備ができました！
 
